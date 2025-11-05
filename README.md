@@ -224,7 +224,7 @@ COMMIT;
 ## Repository Structure
 
 ```
-├── T-SQL-Project.ipynb
+├── adventureworks-sql-analytics.ipynb
 └── README.md
 ```
 
