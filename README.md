@@ -1,10 +1,26 @@
 # Adventureworks Product Sales and Customer Behaviour Analysis
+## Table of Contents
 
-## Project Overview
+1. [Executive Summary](#executive-summary)
+2. [Project Architecture](#project-architecture)
+3. [Featured SQL Examples](#featured-sql-examples)
+   1. [Product Reporting with Conditional Logic](#product-reporting-with-conditional-logic)
+   2. [Customer Profiles with Aggregations](#customer-profiles-with-aggregations)
+   3. [Hierarchical Category Analysis](#hierarchical-category-analysis)
+   4. [Sales Performance Analysis with HAVING](#sales-performance-analysis-with-having)
+   5. [Insert Operations with Identity Management](#insert-operations-with-identity-management)
+   6. [Multi-Row Insert with IDENT_CURRENT](#multi-row-insert-with-ident_current)
+   7. [Update Operations with Conditional Criteria](#update-operations-with-conditional-criteria)
+   8. [Delete with Referential Integrity](#delete-with-referential-integrity)
 
-A comprehensive **T-SQL data analytics and maintenance project** focused on the AdventureWorks database. This project demonstrates practical SQL expertise through business-oriented reporting, data analysis, and database maintenance operations on a real-world sales and product dataset.
 
-## Project Goals
+## Executive Summary
+
+**Overview**
+
+T-SQL project covering business intelligence reporting and database operations.Covers product analysis, customer profiling, category hierarchies, sales metrics, and Create, Read, Update and Delete (CRUD) operations.
+
+**Tasks and Goals**
 
 - Build business intelligence reports for stakeholders across sales, marketing, and operations
 - Demonstrate advanced SQL query design and optimization techniques
@@ -12,7 +28,19 @@ A comprehensive **T-SQL data analytics and maintenance project** focused on the 
 - Handle data quality issues with missing values and complex joins
 - Create actionable insights from multi-dimensional sales and product data
 
-## Technology Stack
+**Key Accomplishments** 
+
+✓ Designed and executed 5 major business reporting workflows  
+✓ Implemented advanced SQL techniques (hierarchical queries, aggregations, window functions)  
+✓ Handled data quality issues with missing values and NULL management  
+✓ Performed complete CRUD operations (Create, Read, Update, Delete) with transaction control  
+✓ Built queries supporting multi-stakeholder reporting needs (sales, marketing, operations)  
+✓ Demonstrated data maintenance best practices with identity management and referential integrity  
+
+---
+## Project Architecture
+
+**Technology Stack**
 
 | Component | Technology |
 |-----------|-----------|
@@ -22,17 +50,14 @@ A comprehensive **T-SQL data analytics and maintenance project** focused on the 
 | **Data Analysis** | Python/Pandas for result processing |
 | **Connection** | ODBC Driver 17/18 for SQL Server |
 
-## Project Scope
+**Repository Structure**
 
-This project covers five major business reporting and maintenance areas:
+```
+├── adventureworks-sql-analytics.ipynb
+└── README.md
+```
 
-1. **Comprehensive Product Reporting** - Detailed product inventory with pricing and profit analysis
-2. **Customer and Order Insights** - Customer profiles with order history and revenue tracking
-3. **Product Category Hierarchy** - Parent-child category relationships with product distribution
-4. **Advanced Sales Analysis** - Sales aggregation, performance metrics, and filtering
-5. **Data Maintenance Operations** - Insert, update, and delete operations with transaction management
-
-## Featured SQL Implementations
+## Featured SQL Examples
 
 ### Product Reporting with Conditional Logic
 
@@ -56,13 +81,6 @@ FROM SalesLT.Product
 ORDER BY ListPrice DESC;
 ```
 
-**Skills Demonstrated:**
-- COALESCE and NULLIF for handling missing data
-- CASE statements for conditional categorization
-- Calculated fields (Markup)
-- String concatenation
-- Multi-column ordering
-
 ### Customer Profiles with Aggregations
 
 ```sql
@@ -83,12 +101,6 @@ GROUP BY
 ORDER BY NumberOfOrders DESC;
 ```
 
-**Skills Demonstrated:**
-- LEFT JOIN for left-outer relationships
-- GROUP BY with aggregation functions (COUNT, SUM)
-- String concatenation with NULL handling
-- Multi-criteria filtering with COALESCE
-
 ### Hierarchical Category Analysis
 
 ```sql
@@ -105,12 +117,6 @@ LEFT JOIN SalesLT.Product AS p
 GROUP BY pcat.Name, cat.Name
 ORDER BY ParentCategory, SubCategory;
 ```
-
-**Skills Demonstrated:**
-- Self-joins for hierarchical relationships
-- Multiple LEFT JOINs
-- NULL value handling in GROUP BY
-- Logical ordering of hierarchical data
 
 ### Sales Performance Analysis with HAVING
 
@@ -130,12 +136,6 @@ HAVING SUM(od.OrderQty) > 20
 ORDER BY TotalUnitsSold DESC;
 ```
 
-**Skills Demonstrated:**
-- JOIN operations with aggregation
-- WHERE vs. HAVING filtering (pre-aggregation vs. post-aggregation)
-- AVG and SUM functions
-- Multi-column grouping and ordering
-
 ### Insert Operations with Identity Management
 
 ```sql
@@ -148,11 +148,6 @@ COMMIT;
 
 SELECT SCOPE_IDENTITY() AS NewProductID;
 ```
-
-**Skills Demonstrated:**
-- IDENTITY management with SCOPE_IDENTITY()
-- INSERT with specific columns
-- Transaction control (COMMIT)
 
 ### Multi-Row Insert with IDENT_CURRENT
 
@@ -170,12 +165,6 @@ VALUES
 COMMIT;
 ```
 
-**Skills Demonstrated:**
-- Multiple INSERT statements with dependencies
-- IDENT_CURRENT for referencing newly created identity values
-- Multi-row data insertion
-- Transaction management
-
 ### Update Operations with Conditional Criteria
 
 ```sql
@@ -187,11 +176,6 @@ WHERE ProductCategoryID =
 
 COMMIT;
 ```
-
-**Skills Demonstrated:**
-- UPDATE with subquery filtering
-- Calculated updates with expressions
-- Transaction control
 
 ### Delete with Referential Integrity
 
@@ -206,58 +190,3 @@ WHERE Name = 'Bells and Horns';
 
 COMMIT;
 ```
-
-**Skills Demonstrated:**
-- DELETE operations with subquery filtering
-- Referential integrity handling
-- Parent-child relationship management
-
-## Key Accomplishments
-
-✓ Designed and executed 5 major business reporting workflows  
-✓ Implemented advanced SQL techniques (hierarchical queries, aggregations, window functions)  
-✓ Handled data quality issues with missing values and NULL management  
-✓ Performed complete CRUD operations (Create, Read, Update, Delete) with transaction control  
-✓ Built queries supporting multi-stakeholder reporting needs (sales, marketing, operations)  
-✓ Demonstrated data maintenance best practices with identity management and referential integrity  
-
-## Repository Structure
-
-```
-├── adventureworks-sql-analytics.ipynb
-└── README.md
-```
-
-## Skills Demonstrated
-
-**SQL Query Design:**
-- Complex SELECT with multiple JOINs
-- Aggregation functions (SUM, AVG, COUNT)
-- GROUP BY and HAVING clauses
-- CASE statements and conditional logic
-- Subqueries and derived tables
-- String manipulation and NULL handling
-
-**Database Operations:**
-- CRUD operations (INSERT, UPDATE, DELETE, SELECT)
-- Transaction management (BEGIN, COMMIT)
-- Identity value management (SCOPE_IDENTITY, IDENT_CURRENT)
-- Data integrity and referential constraints
-- Data maintenance workflows
-
-**Business Analysis:**
-- Multi-dimensional business reporting
-- Performance metrics calculation
-- Customer segmentation and analysis
-- Product portfolio analysis
-- Sales performance tracking
-
-**Data Quality:**
-- Missing value handling with COALESCE and NULLIF
-- Data validation in reports
-- Consistent data representation
-- Hierarchical data presentation
-
----
-
-*This project demonstrates T-SQL mastery applied to real-world business reporting and database maintenance scenarios.*
